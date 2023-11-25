@@ -41,7 +41,12 @@ func _physics_process(delta):
 	
 			
 func chase_or_flee():
-	var direction : Vector3 = ($SheepArea.global_position - dog.global_position)
+	var dogmesh = dog.get_node("../Dog Character Mesh")
+	var straight : Vector3 = (global_position - dog.global_position)
+	var lookZ = dogmesh.global_transform.basis.z
+	var lookX = dogmesh.global_transform.basis.x
+	var direction : Vector3
+	direction = straight.normalized() + lookZ
 	if mirrored:
 		on_chase.emit()
 		direction *= -1
@@ -49,7 +54,7 @@ func chase_or_flee():
 		on_flee.emit()
 	direction.y = 0
 	move_direction = direction.normalized()
-	var magnitude = direction.length()
+	var magnitude = straight.length()
 	move_force = direction.normalized() * pow(1.0 / magnitude, distance_scale)
 	
 func _on_area_3d_body_entered(body):
