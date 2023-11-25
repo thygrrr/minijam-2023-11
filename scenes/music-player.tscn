@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixmlbv7e1yvr"]
+
+[ext_resource type="Script" path="res://music-controller.gd" id="1_sbyrv"]
+[ext_resource type="AudioStream" uid="uid://dyl1lc1b6qb8k" path="res://sheep-herding-loop.wav" id="3_8ltk4"]
+
+[node name="music-player" type="Node"]
+script = ExtResource("1_sbyrv")
+
+[node name="MainLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8ltk4")
