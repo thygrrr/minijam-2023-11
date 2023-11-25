@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvolle3v1ejm4"]
+
+[ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="1_1nrw7"]
+[ext_resource type="PackedScene" uid="uid://ck7rl3atdxc72" path="res://scenes/UI.tscn" id="1_pgu1x"]
+[ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="2_d6cxq"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rwh7q"]
+
+[node name="test-moritz" type="Node3D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_pgu1x")]
+
+[node name="Dog Subscene" parent="." instance=ExtResource("1_1nrw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43786, -1.04697, -3.93095)
+
+[node name="Sheep" parent="." instance=ExtResource("2_d6cxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16029, 0, 2.02581)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.586033, 0.810287, 0, -0.810287, 0.586033, 0, 0, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_rwh7q")
