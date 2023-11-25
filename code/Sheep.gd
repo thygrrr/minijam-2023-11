@@ -28,13 +28,14 @@ func _physics_process(delta):
 		move_direction = Vector3.ZERO
 
 	time += delta
+	
 	var move_noise : Vector3
 	move_noise.x += noise.get_noise_2d(time, 3)
 	move_noise.z += noise.get_noise_2d(time, 7) 
 	
 			
 	var combined = move_force * move_speed + move_noise * noise_speed 
-	smoothed_transform.look_at(smoothed_transform.global_position - combined.normalized(), Vector3.UP)
+	smoothed_transform.look_at(smoothed_transform.global_position - combined, Vector3.UP)
 	constant_force = combined
 	
 			
