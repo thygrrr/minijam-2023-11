@@ -30,6 +30,8 @@ surface_material_override/0 = ExtResource("1_2afv6")
 script = ExtResource("3_pqvlo")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
+collision_layer = 4
+collision_mask = 9
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_30yob")
 SPEED = 20.0

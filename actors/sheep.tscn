@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf1r412lc4j4y"]
+[gd_scene load_steps=9 format=3 uid="uid://cf1r412lc4j4y"]
 
 [ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
 [ext_resource type="Script" path="res://code/Sheep.gd" id="1_ycmc6"]
 [ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_v3xaa"]
 [ext_resource type="Script" path="res://code/SetTopLevel.gd" id="3_yclgx"]
 [ext_resource type="Script" path="res://code/SheepAnimationDriver.gd" id="4_njhre"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kjw71"]
+frequency = 0.02
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 radius = 2.0
@@ -14,10 +17,13 @@ radius = 10.0
 
 [node name="Sheep" type="RigidBody3D"]
 top_level = true
+collision_layer = 2
+collision_mask = 13
 lock_rotation = true
 angular_damp = 1.0
 script = ExtResource("1_ycmc6")
-move_speed = 200.0
+move_speed = 70.0
+noise = SubResource("FastNoiseLite_kjw71")
 
 [node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_v3xaa")
