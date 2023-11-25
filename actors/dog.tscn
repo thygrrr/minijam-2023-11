@@ -34,8 +34,8 @@ collision_layer = 4
 collision_mask = 9
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_30yob")
-SPEED = 100.0
-ACCEL = 50.0
+SPEED = 15.0
+ACCEL = 30.0
 observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
