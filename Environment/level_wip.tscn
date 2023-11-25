@@ -1,0 +1,150 @@
+[gd_scene load_steps=2 format=3 uid="uid://duscaebpnaexw"]
+
+[ext_resource type="PackedScene" uid="uid://dyr8nglk68a6w" path="res://Environment/Level_WIP.glb" id="1_6cgh7"]
+
+[node name="Level_WIP" instance=ExtResource("1_6cgh7")]
+
+[node name="Plane" parent="." index="0"]
+visible = false
+
+[node name="Cube_003" parent="." index="1"]
+visible = false
+
+[node name="Cube" parent="." index="2"]
+visible = false
+
+[node name="Cube_001" parent="." index="3"]
+visible = false
+
+[node name="Cube_006" parent="." index="4"]
+visible = false
+
+[node name="Cube_008" parent="." index="5"]
+visible = false
+
+[node name="Cube_010" parent="." index="6"]
+visible = false
+
+[node name="Cube_012" parent="." index="7"]
+visible = false
+
+[node name="Icosphere" parent="." index="8"]
+visible = false
+
+[node name="Icosphere_001" parent="." index="9"]
+visible = false
+
+[node name="Icosphere_002" parent="." index="10"]
+visible = false
+
+[node name="Icosphere_003" parent="." index="11"]
+visible = false
+
+[node name="Cube_016" parent="." index="12"]
+visible = false
+
+[node name="Cube_019" parent="." index="13"]
+visible = false
+
+[node name="Cube_021" parent="." index="14"]
+visible = false
+
+[node name="Cube_025" parent="." index="15"]
+visible = false
+
+[node name="Icosphere_014" parent="." index="16"]
+visible = false
+
+[node name="Tree Leaves_009" parent="." index="17"]
+visible = false
+
+[node name="Tree Trunk_010" parent="." index="18"]
+visible = false
+
+[node name="Icosphere_004" parent="." index="19"]
+visible = false
+
+[node name="Icosphere_005" parent="." index="20"]
+visible = false
+
+[node name="Icosphere_006" parent="." index="21"]
+visible = false
+
+[node name="Icosphere_007" parent="." index="22"]
+visible = false
+
+[node name="Icosphere_008" parent="." index="23"]
+visible = false
+
+[node name="Icosphere_009" parent="." index="24"]
+visible = false
+
+[node name="Icosphere_010" parent="." index="25"]
+visible = false
+
+[node name="Icosphere_011" parent="." index="26"]
+visible = false
+
+[node name="Icosphere_012" parent="." index="27"]
+visible = false
+
+[node name="Icosphere_013" parent="." index="28"]
+visible = false
+
+[node name="Cylinder" parent="." index="29"]
+visible = false
+
+[node name="Icosphere_015" parent="." index="30"]
+visible = false
+
+[node name="Cube_002" parent="." index="31"]
+visible = false
+
+[node name="Icosphere_017" parent="." index="32"]
+visible = false
+
+[node name="Cube_004" parent="." index="33"]
+visible = false
+
+[node name="Cube_005" parent="." index="34"]
+visible = false
+
+[node name="Cube_007" parent="." index="35"]
+visible = false
+
+[node name="Tree Leaves_001" parent="." index="36"]
+visible = false
+
+[node name="Tree Trunk_001" parent="." index="37"]
+visible = false
+
+[node name="Cube_009" parent="." index="38"]
+visible = false
+
+[node name="Cube_011" parent="." index="39"]
+visible = false
+
+[node name="Cube_013" parent="." index="40"]
+visible = false
+
+[node name="Cube_014" parent="." index="41"]
+visible = false
+
+[node name="Icosphere_016" parent="." index="42"]
+visible = false
+
+[node name="Icosphere_018" parent="." index="43"]
+visible = false
+
+[node name="Icosphere_019" parent="." index="44"]
+visible = false
+
+[node name="Icosphere_020" parent="." index="45"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7231, 0, -26.1231)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 90, 0, 0)
+polygon = PackedVector2Array(-4.76553, 7.72916, 6.16989, 5.23957, 10.6079, -7.89811, -4.74684, 3.04648)
