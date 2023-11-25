@@ -1,6 +1,7 @@
 extends Node3D
 @export var sheep_count_goal : int = 1
 var sheep_count : int
+signal win
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sheep_count = 0
@@ -17,8 +18,9 @@ func _on_area_3d_area_entered(area):
 	if area.name == "Sheep Area":
 		sheep_count += 1 
 		if sheep_count >= sheep_count_goal:
-			print("win")
+			win.emit()
 			
 
 func _on_area_3d_area_exited(area):
 	sheep_count -= 1 
+
