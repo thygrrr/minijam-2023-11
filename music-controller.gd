@@ -5,7 +5,8 @@ var mirror_loop = preload("res://mirror-world.WAV")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MainLoop.play(main_loop)
+	$MainLoop.stream = main_loop
+	$MainLoop.play()
 
 func _on_mirror_enter():
 	$MainLoop.stream = mirror_loop
