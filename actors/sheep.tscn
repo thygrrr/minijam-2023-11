@@ -7,6 +7,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 
 [node name="Sheep" type="Node3D"]
+script = ExtResource("1_dfq6n")
 metadata/SheepEvasion = false
 
 [node name="Sheep Mesh" type="MeshInstance3D" parent="."]
@@ -18,3 +19,6 @@ script = ExtResource("1_dfq6n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_bx7et")
+
+[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
+[connection signal="body_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_exited"]
