@@ -26,10 +26,5 @@ func _on_area_3d_body_entered(body):
 	if body.name == "Dog Controller":
 		dog = body
 
-
-func _on_area_3d_area_exited(area):
-	dog = null
-
-
 func _on_area_3d_body_exited(body):
-	pass # Replace with function body.
+	dog = null

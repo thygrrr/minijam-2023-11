@@ -10,6 +10,7 @@ radius = 5.0
 
 [node name="Sheep" type="RigidBody3D"]
 top_level = true
+lock_rotation = true
 script = ExtResource("1_ycmc6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
