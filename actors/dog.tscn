@@ -15,14 +15,13 @@ radius = 6.0
 [node name="Dog + Camera Scene" type="Node3D"]
 
 [node name="Camera Rig" parent="." instance=ExtResource("1_sbolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 9.38028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.0724, 9.38028)
 
 [node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
-top_level = true
 target = NodePath("../../Dog Controller/Dog Character Mesh")
+scaling = Vector3(1, 1, 1)
 
 [node name="Camera3D" parent="Camera Rig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000922889, 0.00114489, -0.00170684)
 target = NodePath("../../../Dog Controller/Dog Character Mesh")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]

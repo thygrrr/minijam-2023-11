@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export var observer : Camera3D 
 
 func _physics_process(delta: float) -> void:
-	var input_dir := Input.get_vector("p1-left", "p1-right", "p1-forward", "p1-back")
+	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var v := Vector3.ZERO
 
 	# Polynomial input scaling
