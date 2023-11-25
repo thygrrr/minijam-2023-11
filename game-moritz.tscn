@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="3_tc15c"]
 [ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_ejhdb"]
 [ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_0ukko"]
-[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="5_tbbsf"]
+[ext_resource type="PackedScene" path="res://Environment/Level Suffix Test.tscn" id="5_tbbsf"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
 dof_blur_far_enabled = true

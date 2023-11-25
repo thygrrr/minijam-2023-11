@@ -10,7 +10,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qnqna"]
 margin = 0.2
-radius = 1.0
+radius = 1.2
 
 [node name="Dog + Camera Scene" type="Node3D"]
 
