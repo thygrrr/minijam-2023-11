@@ -10,7 +10,7 @@ extends CharacterBody3D
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var v := Vector3.ZERO
+	#var v := Vector3.ZERO
 
 	# Polynomial input scaling
 	input_dir = m.pow2(input_dir, 0.7)
@@ -36,6 +36,3 @@ func _physics_process(delta: float) -> void:
 	direction = velocity.normalized()
 
 	move_and_slide()
-
-func _on_collision_body_body_entered(body: Node3D) -> void:
-	pass

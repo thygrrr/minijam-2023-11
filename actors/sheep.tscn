@@ -1,24 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf1r412lc4j4y"]
+[gd_scene load_steps=6 format=3 uid="uid://cf1r412lc4j4y"]
 
-[ext_resource type="Script" path="res://code/SheepEvasion.gd" id="1_dfq6n"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_fwm0x"]
+[ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
+[ext_resource type="Script" path="res://code/Sheep.gd" id="1_ycmc6"]
+[ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_v3xaa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 
-[node name="Sheep" type="Node3D"]
-script = ExtResource("1_dfq6n")
-metadata/SheepEvasion = false
+[sub_resource type="SphereShape3D" id="SphereShape3D_j67cp"]
+radius = 10.0
 
-[node name="Sheep Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("SphereMesh_fwm0x")
+[node name="Sheep" type="RigidBody3D"]
+top_level = true
+lock_rotation = true
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_ycmc6")
+move_speed = 75.0
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-script = ExtResource("1_dfq6n")
+[node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_v3xaa")
+target = NodePath("../Sheep Mesh")
+angular_smooth_time = 0.01
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bx7et")
 
-[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
-[connection signal="body_exited" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_exited"]
+[node name="Sheep Mesh" type="Node3D" parent="."]
+top_level = true
+
+[node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_j67cp")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
