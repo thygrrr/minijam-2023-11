@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ck7rl3atdxc72"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1063.0
+offset_top = 599.0
+offset_right = 1124.0
+offset_bottom = 625.0
+text = "Score: 0
+"
