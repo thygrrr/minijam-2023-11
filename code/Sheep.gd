@@ -15,10 +15,10 @@ signal on_idle;
 func _physics_process(delta):
 	if dog:
 		chase_or_flee()
+		smoothed_transform.look_at(smoothed_transform.global_position - move_direction, Vector3.UP)
 	else:
 		move_direction = Vector3.ZERO
 
-	smoothed_transform.look_at(smoothed_transform.global_position - move_direction, Vector3.UP)
 	constant_force = move_force * move_speed
 		
 	
@@ -35,13 +35,10 @@ func chase_or_flee():
 	move_force = direction.normalized() / magnitude
 	
 func _on_area_3d_body_entered(body):
-	print("Body entered")
-
 	if body.name == "Dog Controller":
 		dog = body
 
 func _on_area_3d_body_exited(body):
-	print("Body exited")
 	if body.name == "Dog Controller":
 		on_idle.emit()
 		dog = null
