@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1kt1c3tyusfa"]
+[gd_scene load_steps=9 format=3 uid="uid://c1kt1c3tyusfa"]
 
 [ext_resource type="PackedScene" uid="uid://dyr8nglk68a6w" path="res://Environment/Level_WIP.glb" id="1_5n6r3"]
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_fpidm"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_oh5l8"]
 [ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_ejhdb"]
+[ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_0ukko"]
+[ext_resource type="Script" path="res://code/Mirror.gd" id="6_fms3m"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqd1x"]
 
@@ -15,12 +17,13 @@ dof_blur_near_enabled = true
 [node name="game" type="Node3D"]
 
 [node name="Level_WIP" parent="." instance=ExtResource("1_5n6r3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.23032, 0, -6.37083)
 
 [node name="Dog + Camera Scene" parent="." instance=ExtResource("2_fpidm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93852, 1, 3.313)
 
 [node name="Sheep" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0642091, -2.38419e-07, -0.933392)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -60,3 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11897, 0, 7.91401)
 
 [node name="Sheep9" parent="." instance=ExtResource("3_oh5l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15712, 0, 6.69536)
+
+[node name="Mirror Shard" parent="." instance=ExtResource("5_0ukko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
+script = ExtResource("6_fms3m")

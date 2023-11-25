@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnhemlnl8brbi"]
+
+[ext_resource type="Script" path="res://code/Mirror.gd" id="1_0oiuq"]
+
+[node name="Mirror Shard" type="Node3D"]
+script = ExtResource("1_0oiuq")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.2, 0)

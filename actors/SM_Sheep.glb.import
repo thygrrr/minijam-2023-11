@@ -9025,6 +9025,16 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": null
 }
+},
+"materials": {
+"M_Sheep_Black": {
+"use_external/enabled": true,
+"use_external/path": "res://actors/M_Sheep_Black.tres"
+},
+"M_Sheep_White": {
+"use_external/enabled": true,
+"use_external/path": "res://actors/M_Sheep_White.tres"
+}
 }
 }
 gltf/embedded_image_handling=1
