@@ -31,10 +31,10 @@ top_level = true
 [node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Sheep Area" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep Area"]
 shape = SubResource("SphereShape3D_j67cp")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Sheep Area" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Sheep Area" to="." method="_on_area_3d_body_exited"]
