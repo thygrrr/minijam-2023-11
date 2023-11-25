@@ -23,6 +23,8 @@ target = NodePath("../../../Dog Controller/Dog Character Mesh")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
 script = ExtResource("1_30yob")
+SPEED = 20.0
+ACCEL = 50.0
 observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
