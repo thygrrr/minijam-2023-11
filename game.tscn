@@ -71,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
 
 [node name="Goal" parent="." instance=ExtResource("7_1sujn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0137, -2.82824, -31.8015)
-sheep_count_goal = 8
+sheep_count_goal = 2
 
 [node name="HUD" parent="." instance=ExtResource("8_cb8gq")]
 
