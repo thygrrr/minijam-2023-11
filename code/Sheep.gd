@@ -41,7 +41,7 @@ func _physics_process(delta):
 	
 			
 func chase_or_flee():
-	var direction : Vector3 = (self.global_position - dog.global_position)
+	var direction : Vector3 = ($SheepArea.global_position - dog.global_position)
 	if mirrored:
 		on_chase.emit()
 		direction *= -1

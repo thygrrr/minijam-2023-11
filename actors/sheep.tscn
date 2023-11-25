@@ -20,11 +20,11 @@ top_level = true
 collision_layer = 2
 collision_mask = 13
 lock_rotation = true
-linear_damp = 5.0
+linear_damp = 7.0
 angular_damp = 1.0
 script = ExtResource("1_ycmc6")
-move_speed = 75.0
-noise_speed = 30.0
+move_speed = 150.0
+noise_speed = 60.0
 noise = SubResource("FastNoiseLite_kjw71")
 
 [node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
@@ -33,26 +33,26 @@ target = NodePath("../Sheep Mesh")
 angular_smooth_time = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("SphereShape3D_bx7et")
 
 [node name="Sheep Mesh" type="Node3D" parent="."]
 script = ExtResource("3_yclgx")
 
 [node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0.0612053, 0.998125, -2.67537e-09, 0.998125, -0.0612053, -4.36294e-08, 0, 0.0353191, 0)
 script = ExtResource("4_njhre")
 
-[node name="Sheep Area" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4446)
+[node name="SheepArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.73216)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep Area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SheepArea"]
 shape = SubResource("SphereShape3D_j67cp")
 
 [connection signal="on_chase" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_chase"]
 [connection signal="on_flee" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_flee"]
 [connection signal="on_idle" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_idle"]
-[connection signal="body_entered" from="Sheep Area" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Sheep Area" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="SheepArea" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="SheepArea" to="." method="_on_area_3d_body_exited"]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfq3hk4is4f7f"]
-
-[ext_resource type="PackedScene" uid="uid://blm7pcfybiv6w" path="res://Environment/Level.glb" id="1_5rn8p"]
+[gd_scene format=3 uid="uid://dfq3hk4is4f7f"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Level" parent="." instance=ExtResource("1_5rn8p")]
+[node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00906181, 0, -0.00286698)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level"]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Level/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.32214, 1.80927, -15.934)
+depth = 20.0
+polygon = PackedVector2Array(2.52266, 3.71919, -1.09588, 2.91507, -5.82007, 4.22176, -10.1422, 4.42279, -15.168, 3.61867, -17.3793, -1.10552, -16.7762, -6.63384, -13.4592, -8.94568, -13.0571, -11.5591, -9.53912, -13.9714, -9.63963, -19.0977, -6.52367, -20.7059, 0.512359, -20.1028, 5.63862, -18.5951, 9.25715, -14.1724, 10.7649, -9.14671, 13.2777, -6.73435, 12.7752, -1.00501, 9.25715, 2.11095, 4.43244, 3.21661)
