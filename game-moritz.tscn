@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://tyked81fa7s"]
+[gd_scene load_steps=4 format=3 uid="uid://tyked81fa7s"]
 
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="1_dh521"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="2_c4ghx"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rwh7q"]
 
 [node name="test-moritz" type="Node3D"]
 
@@ -13,3 +15,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47221, 0, -5.43215)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.586033, 0.810287, 0, -0.810287, 0.586033, 0, 0, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_rwh7q")
