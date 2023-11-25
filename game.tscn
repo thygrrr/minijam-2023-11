@@ -1,11 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmicpc3pq8ihq"]
 
+[ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="1_0n2nm"]
 [ext_resource type="PackedScene" uid="uid://dyr8nglk68a6w" path="res://Environment/Level_WIP.glb" id="1_ausrv"]
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_04sw3"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_gh6y3"]
 [ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_8843f"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqd1x"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
 dof_blur_far_enabled = true
@@ -14,6 +13,8 @@ dof_blur_near_enabled = true
 
 [node name="game" type="Node3D"]
 
+[node name="Ground" parent="." instance=ExtResource("1_0n2nm")]
+
 [node name="Level_WIP" parent="." instance=ExtResource("1_ausrv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
@@ -21,11 +22,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93852, 1, 3.313)
 
 [node name="Sheep" parent="." instance=ExtResource("3_gh6y3")]
-
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("WorldBoundaryShape3D_yqd1x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.615414, -0.475144, 0.628891, -0.470146, 0.419119, 0.776726, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
