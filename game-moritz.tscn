@@ -11,7 +11,7 @@
 [node name="Sheep" parent="." instance=ExtResource("2_c4ghx")]
 
 [node name="camerarig" parent="." instance=ExtResource("3_k0u2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28338, 3.68491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 4)
 
 [node name="Follow Plane" parent="camerarig" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../Dog")
