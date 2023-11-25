@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://47mm5of588at"]
+
+[ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_wiili"]
+[ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="3_dissg"]
+[ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_vd3ll"]
+[ext_resource type="Environment" path="res://Environment/rendering-environment.tres" id="4_8ef5s"]
+[ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_gwoe3"]
+[ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="5_u8cjq"]
+[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_lga5d"]
+[ext_resource type="PackedScene" uid="uid://c2gvojaxsy5k" path="res://actors/HUD.tscn" id="6_wlkn4"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 52.0
+dof_blur_near_enabled = true
+
+[node name="game" type="Node3D"]
+
+[node name="Dog + Camera Scene" parent="." instance=ExtResource("2_wiili")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93852, 1, 3.313)
+
+[node name="Sheep" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0642091, -2.38419e-07, -0.933392)
+
+[node name="Ground" parent="." instance=ExtResource("3_dissg")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_8ef5s")
+camera_attributes = SubResource("CameraAttributesPractical_5alyf")
+
+[node name="Key Light" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
+light_color = Color(1, 1, 0.768627, 1)
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 3.0
+
+[node name="Fill Light" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.733853, -0.585791, 0.343961, -0.633848, -0.772594, 0.0365511, 0.244331, -0.244842, -0.938272, 0, 5.5709, 0)
+light_color = Color(0.501961, 0.478431, 1, 1)
+
+[node name="Sheep2" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41774, 0, 4.5896)
+
+[node name="Sheep3" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87797, 0, 4.64984)
+
+[node name="Sheep4" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68278, 0.181362, 4.74665)
+
+[node name="Sheep5" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43325, 0, 4.60643)
+
+[node name="Sheep6" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57567, 0, 6.26942)
+
+[node name="Sheep7" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611174, 0, 4.80328)
+
+[node name="Sheep8" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11897, 0, 7.91401)
+
+[node name="Sheep9" parent="." instance=ExtResource("3_vd3ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15712, 0, 6.69536)
+
+[node name="Mirror Shard" parent="." instance=ExtResource("5_gwoe3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
+
+[node name="Node3D" parent="." instance=ExtResource("6_lga5d")]
+
+[node name="Goal" parent="." instance=ExtResource("5_u8cjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0137, -2.82824, -31.8015)
+sheep_count_goal = 8
+
+[node name="Hude_Node" parent="." instance=ExtResource("6_wlkn4")]
+
+[connection signal="win" from="Goal" to="Hude_Node" method="_on_goal_win"]
