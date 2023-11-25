@@ -2,9 +2,10 @@ extends RigidBody3D
 
 var dog : Node3D
 var mirrored : bool
-
+@export var distance_scale := 0.5
 var move_force : Vector3 = Vector3.ZERO
 var move_direction : Vector3 = Vector3.ZERO
+
 @export var move_speed : float = 100
 @export var noise_speed : float = 20
 @onready var smoothed_transform : Node3D = $SmoothRemoteTransform3D
@@ -49,7 +50,7 @@ func chase_or_flee():
 	direction.y = 0
 	move_direction = direction.normalized()
 	var magnitude = direction.length()
-	move_force = direction.normalized() / magnitude
+	move_force = direction.normalized() * pow(1.0 / magnitude, distance_scale)
 	
 func _on_area_3d_body_entered(body):
 	if body.name == "Dog Controller":
