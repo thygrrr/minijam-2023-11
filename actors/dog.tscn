@@ -8,7 +8,9 @@
 
 [sub_resource type="PrismMesh" id="PrismMesh_b6brc"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1c7pi"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qnqna"]
+margin = 0.2
+radius = 1.0
 
 [node name="Dog + Camera Scene" type="Node3D"]
 
@@ -38,7 +40,7 @@ script = ExtResource("3_hhv7b")
 target = NodePath("../../Dog Character Mesh")
 
 [node name="Dog Collision Shape" type="CollisionShape3D" parent="Dog Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_1c7pi")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_qnqna")
 
 [editable path="Camera Rig"]
