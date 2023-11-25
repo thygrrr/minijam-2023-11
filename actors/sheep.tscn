@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
 [ext_resource type="Script" path="res://code/Sheep.gd" id="1_ycmc6"]
 [ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_v3xaa"]
-[ext_resource type="Script" path="res://actors/SetTopLevel.gd" id="3_yclgx"]
-[ext_resource type="Script" path="res://actors/SheepAnimationDriver.gd" id="4_njhre"]
+[ext_resource type="Script" path="res://code/SetTopLevel.gd" id="3_yclgx"]
+[ext_resource type="Script" path="res://code/SheepAnimationDriver.gd" id="4_njhre"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 
