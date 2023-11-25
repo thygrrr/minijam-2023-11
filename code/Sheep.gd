@@ -25,13 +25,13 @@ func _physics_process(delta):
 
 	time += delta
 	var move_noise : Vector3
-	move_noise.x += noise.get_noise_2d(time, 3) - 0.5
-	move_noise.z += noise.get_noise_2d(time, 7) - 0.5
+	move_noise.x += noise.get_noise_2d(time, 3)
+	move_noise.z += noise.get_noise_2d(time, 7) 
 	
 			
 	var combined = move_force * move_speed 
 	combined += move_noise * noise_speed
-	constant_force = combined
+	constant_force
 	
 			
 func chase_or_flee():

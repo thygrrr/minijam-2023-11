@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://code/SheepAnimationDriver.gd" id="4_njhre"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kjw71"]
-frequency = 0.02
+frequency = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 radius = 2.0
@@ -22,7 +22,8 @@ collision_mask = 13
 lock_rotation = true
 angular_damp = 1.0
 script = ExtResource("1_ycmc6")
-move_speed = 70.0
+move_speed = 40.0
+noise_speed = 10.0
 noise = SubResource("FastNoiseLite_kjw71")
 
 [node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
