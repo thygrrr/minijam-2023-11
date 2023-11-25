@@ -12,14 +12,19 @@
 [node name="Dog + Camera Scene" type="Node3D"]
 
 [node name="Camera Rig" parent="." instance=ExtResource("1_sbolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.0724, 9.38028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 5)
 
 [node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../../Dog Controller/Dog Character Mesh")
+target = NodePath("../../Dog Character Mesh")
 scaling = Vector3(1, 1, 1)
 
 [node name="Camera3D" parent="Camera Rig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../../../Dog Controller/Dog Character Mesh")
+target = NodePath("../../../Dog Character Mesh")
+
+[node name="Dog Character Mesh" type="MeshInstance3D" parent="."]
+top_level = true
+mesh = SubResource("PrismMesh_b6brc")
+surface_material_override/0 = ExtResource("1_2afv6")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
 script = ExtResource("1_30yob")
@@ -29,13 +34,7 @@ observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
 script = ExtResource("3_hhv7b")
-target = NodePath("../Dog Character Mesh")
-
-[node name="Dog Character Mesh" type="MeshInstance3D" parent="Dog Controller"]
-top_level = true
-mesh = SubResource("PrismMesh_b6brc")
-skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("1_2afv6")
+target = NodePath("../../Dog Character Mesh")
 
 [node name="Dog Collision Shape" type="CollisionShape3D" parent="Dog Controller"]
 shape = SubResource("SphereShape3D_qn481")
