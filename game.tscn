@@ -20,7 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93852, 1, 3.313)
 
 [node name="Sheep" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0642091, -2.38419e-07, -0.933392)
-noise_speed = null
 
 [node name="Ground" parent="." instance=ExtResource("1_0n2nm")]
 
@@ -41,35 +40,27 @@ light_color = Color(0.501961, 0.478431, 1, 1)
 
 [node name="Sheep2" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41774, 0, 4.5896)
-noise_speed = null
 
 [node name="Sheep3" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87797, 0, 4.64984)
-noise_speed = null
 
 [node name="Sheep4" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68278, 0.181362, 4.74665)
-noise_speed = null
 
 [node name="Sheep5" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43325, 0, 4.60643)
-noise_speed = null
 
 [node name="Sheep6" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57567, 0, 6.26942)
-noise_speed = null
 
 [node name="Sheep7" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611174, 0, 4.80328)
-noise_speed = null
 
 [node name="Sheep8" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11897, 0, 7.91401)
-noise_speed = null
 
 [node name="Sheep9" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15712, 0, 6.69536)
-noise_speed = null
 
 [node name="Mirror Shard" parent="." instance=ExtResource("5_yoofr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)

@@ -16,10 +16,14 @@ signal on_chase;
 signal on_idle;
 
 var time : float
+
+func _ready():
+	var random := RandomNumberGenerator.new()
+	time = random.randf_range(0, 100)
+	
 func _physics_process(delta):
 	if dog:
 		chase_or_flee()
-		smoothed_transform.look_at(smoothed_transform.global_position - move_direction, Vector3.UP)
 	else:
 		move_direction = Vector3.ZERO
 
@@ -29,9 +33,9 @@ func _physics_process(delta):
 	move_noise.z += noise.get_noise_2d(time, 7) 
 	
 			
-	var combined = move_force * move_speed 
-	combined += move_noise * noise_speed
-	constant_force
+	var combined = move_force * move_speed + move_noise * noise_speed 
+	smoothed_transform.look_at(smoothed_transform.global_position - combined.normalized(), Vector3.UP)
+	constant_force = combined
 	
 			
 func chase_or_flee():
