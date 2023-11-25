@@ -62,6 +62,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11897, 0, 7.91401)
 [node name="Sheep9" parent="." instance=ExtResource("3_oh5l8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15712, 0, 6.69536)
 
+[node name="Sheep10" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61073, 0, -32.123)
+
+[node name="Sheep11" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.071, 0, -32.0627)
+
+[node name="Sheep12" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87577, 0.181362, -31.9659)
+
+[node name="Sheep13" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75974, 0, -32.1061)
+
+[node name="Sheep14" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7687, 0, -30.4431)
+
+[node name="Sheep15" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58181, 0, -31.9093)
+
+[node name="Sheep16" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31196, 0, -28.7985)
+
+[node name="Sheep17" parent="." instance=ExtResource("3_oh5l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03587, 0, -30.0172)
+
 [node name="Mirror Shard" parent="." instance=ExtResource("5_0ukko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
 
