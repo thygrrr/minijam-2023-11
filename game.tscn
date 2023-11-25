@@ -29,6 +29,7 @@ shape = SubResource("WorldBoundaryShape3D_yqd1x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.615414, -0.475144, 0.628891, -0.470146, 0.419119, 0.776726, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
+visible = false
 light_color = Color(1, 1, 0.768627, 1)
 shadow_enabled = true
 
