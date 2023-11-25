@@ -30,6 +30,7 @@ func chase_or_flee():
 		direction *= -1
 	else:
 		on_flee.emit()
+		
 	move_direction = direction.normalized()
 	var magnitude = direction.length()
 	move_force = direction.normalized() / magnitude

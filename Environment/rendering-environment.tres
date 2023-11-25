@@ -2,10 +2,11 @@
 
 [resource]
 background_mode = 1
-background_color = Color(0.756863, 0.866667, 0.72549, 1)
+background_color = Color(0.698039, 0.74902, 0.341176, 1)
 tonemap_mode = 2
 ssao_enabled = true
 sdfgi_enabled = true
+sdfgi_read_sky_light = false
 glow_enabled = true
 glow_intensity = 0.5
 glow_strength = 0.2
