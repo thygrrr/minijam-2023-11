@@ -14,10 +14,9 @@ radius = 10.0
 [node name="Sheep" type="RigidBody3D"]
 top_level = true
 lock_rotation = true
-linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_ycmc6")
-move_speed = 75.0
+move_speed = 200.0
 
 [node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_v3xaa")

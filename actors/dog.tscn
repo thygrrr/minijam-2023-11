@@ -8,9 +8,8 @@
 
 [sub_resource type="PrismMesh" id="PrismMesh_b6brc"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qnqna"]
-margin = 0.2
-radius = 1.2
+[sub_resource type="SphereShape3D" id="SphereShape3D_grkg1"]
+radius = 1.0
 
 [node name="Dog + Camera Scene" type="Node3D"]
 
@@ -30,6 +29,7 @@ surface_material_override/0 = ExtResource("1_2afv6")
 script = ExtResource("3_pqvlo")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
+wall_min_slide_angle = 3.14159
 script = ExtResource("1_30yob")
 SPEED = 20.0
 ACCEL = 50.0
@@ -40,7 +40,6 @@ script = ExtResource("3_hhv7b")
 target = NodePath("../../Dog Character Mesh")
 
 [node name="Dog Collision Shape" type="CollisionShape3D" parent="Dog Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_qnqna")
+shape = SubResource("SphereShape3D_grkg1")
 
 [editable path="Camera Rig"]
