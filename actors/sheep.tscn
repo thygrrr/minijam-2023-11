@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cf1r412lc4j4y"]
 
+[ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
 [ext_resource type="Script" path="res://code/SheepEvasion.gd" id="1_dfq6n"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_fwm0x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 
@@ -10,9 +9,9 @@
 script = ExtResource("1_dfq6n")
 metadata/SheepEvasion = false
 
-[node name="Sheep Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("SphereMesh_fwm0x")
+[node name="Sheep Mesh" type="Node3D" parent="."]
+
+[node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 script = ExtResource("1_dfq6n")
