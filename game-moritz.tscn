@@ -1,22 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://tyked81fa7s"]
+[gd_scene load_steps=5 format=3 uid="uid://tyked81fa7s"]
 
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="1_dh521"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="2_c4ghx"]
 [ext_resource type="PackedScene" uid="uid://bx418t4qbicbr" path="res://camera/camera-rig.tscn" id="3_k0u2v"]
+[ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="4_0oklt"]
 
 [node name="test-moritz" type="Node3D"]
 
 [node name="Dog" parent="." instance=ExtResource("1_dh521")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43786, -1.04697, -3.93095)
 
 [node name="Sheep" parent="." instance=ExtResource("2_c4ghx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47221, 0, -5.43215)
 
-[node name="camerarig" parent="." instance=ExtResource("3_k0u2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 4)
+[node name="Camera Rig" parent="." instance=ExtResource("3_k0u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 9.38028)
 
-[node name="Follow Plane" parent="camerarig" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../../Dog")
+[node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
+top_level = true
+target = NodePath("Camera Target")
 
-[node name="Camera3D" parent="camerarig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../../../Sheep")
+[node name="Camera3D" parent="Camera Rig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000922889, 0.00114489, -0.00170684)
+target = NodePath("../../../Dog")
 
-[editable path="camerarig"]
+[node name="Camera Target" type="Node3D" parent="Camera Rig/Follow Plane" index="1" node_paths=PackedStringArray("target")]
+top_level = true
+script = ExtResource("4_0oklt")
+target = NodePath("../../../Dog")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.586033, 0.810287, 0, -0.810287, 0.586033, 0, 0, 0)
+
+[editable path="Camera Rig"]
