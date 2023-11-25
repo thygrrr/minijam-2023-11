@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gvojaxsy5k"]
+[gd_scene load_steps=4 format=3 uid="uid://cuquqjl6wexqn"]
 
 [ext_resource type="Script" path="res://code/HUD.gd" id="1_433a5"]
 
@@ -76,7 +76,7 @@ text = "Start"
 
 [node name="LevelTimer" type="Timer" parent="Control"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 60.0
 
 [node name="Hude_Node" type="Node3D" parent="."]
 
