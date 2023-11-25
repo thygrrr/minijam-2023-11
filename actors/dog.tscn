@@ -1,19 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2pjx8xhnvbdk"]
+[gd_scene load_steps=8 format=3 uid="uid://c2pjx8xhnvbdk"]
 
 [ext_resource type="Material" uid="uid://bd2yiewuf2dcc" path="res://actors/dog-material.tres" id="1_2afv6"]
+[ext_resource type="Script" path="res://code/KinematicController.gd" id="1_30yob"]
+[ext_resource type="PackedScene" uid="uid://bx418t4qbicbr" path="res://camera/camera-rig.tscn" id="1_sbolm"]
+[ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_hhv7b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7nbuy"]
 radius = 6.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_b6brc"]
 
-[node name="Dog" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qn481"]
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Dog + Camera Scene" type="Node3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="Camera Rig" parent="." instance=ExtResource("1_sbolm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 9.38028)
+
+[node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
+top_level = true
+target = NodePath("../../Dog Controller/Dog Character Mesh")
+
+[node name="Camera3D" parent="Camera Rig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000922889, 0.00114489, -0.00170684)
+target = NodePath("../../../Dog Controller/Dog Character Mesh")
+
+[node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
+script = ExtResource("1_30yob")
+observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
+
+[node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
+script = ExtResource("3_hhv7b")
+target = NodePath("../Dog Character Mesh")
+
+[node name="Dog Infuence Area" type="Area3D" parent="Dog Controller"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dog Controller/Dog Infuence Area"]
 shape = SubResource("SphereShape3D_7nbuy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Dog Character Mesh" type="MeshInstance3D" parent="Dog Controller"]
 mesh = SubResource("PrismMesh_b6brc")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_2afv6")
+
+[node name="Dog Collision Shape" type="CollisionShape3D" parent="Dog Controller"]
+shape = SubResource("SphereShape3D_qn481")
+
+[editable path="Camera Rig"]
