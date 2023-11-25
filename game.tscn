@@ -31,6 +31,8 @@ camera_attributes = SubResource("CameraAttributesPractical_5alyf")
 transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
 light_color = Color(1, 1, 0.768627, 1)
 shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 3.0
 
 [node name="Fill Light" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.733853, -0.585791, 0.343961, -0.633848, -0.772594, 0.0365511, 0.244331, -0.244842, -0.938272, 0, 5.5709, 0)
@@ -66,5 +68,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
 [node name="Node3D" parent="." instance=ExtResource("6_xk21v")]
 
 [node name="Goal" parent="." instance=ExtResource("7_1sujn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6991, 0, -12.7627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0137, -2.82824, -31.8015)
 sheep_count_goal = 8

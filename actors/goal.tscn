@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://code/Goal.gd" id="1_4e10x"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7rnwp"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_eglm5"]
+radius = 10.0
 
 [node name="Goal" type="Node3D"]
 script = ExtResource("1_4e10x")
@@ -11,7 +12,7 @@ sheep_count_goal = 10
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_7rnwp")
+shape = SubResource("SphereShape3D_eglm5")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
