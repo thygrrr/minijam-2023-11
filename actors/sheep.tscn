@@ -13,7 +13,7 @@ frequency = 0.1
 radius = 2.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j67cp"]
-radius = 10.0
+radius = 8.0
 
 [node name="Sheep" type="RigidBody3D"]
 top_level = true
@@ -44,11 +44,16 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0.0612053, 0.998125, -2.67537e-09, 
 script = ExtResource("4_njhre")
 
 [node name="SheepArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.73216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.87329)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SheepArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14803, 0, -2.58962)
+shape = SubResource("SphereShape3D_j67cp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SheepArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97173, 0, -2.58962)
 shape = SubResource("SphereShape3D_j67cp")
 
 [connection signal="on_chase" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_chase"]

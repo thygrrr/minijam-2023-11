@@ -15,11 +15,11 @@ radius = 1.0
 script = ExtResource("1_jyhru")
 
 [node name="Camera Rig" parent="." instance=ExtResource("1_sbolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 10)
 
 [node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../Dog Character Mesh")
-scaling = Vector3(1, 1, 1)
+scaling = Vector3(0.9, 1, 1.1)
 
 [node name="Camera3D" parent="Camera Rig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
 fov = 50.0
@@ -33,6 +33,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 script = ExtResource("5_kuw8o")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
+top_level = true
 collision_layer = 4
 collision_mask = 9
 wall_min_slide_angle = 3.14159
