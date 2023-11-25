@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cf1r412lc4j4y"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_l0dsi"]
+[sub_resource type="SphereMesh" id="SphereMesh_fwm0x"]
 
 [node name="Sheep" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_l0dsi")
+mesh = SubResource("SphereMesh_fwm0x")

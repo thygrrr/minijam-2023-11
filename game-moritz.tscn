@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyked81fa7s"]
+
+[ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="1_dh521"]
+[ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="2_c4ghx"]
+[ext_resource type="PackedScene" uid="uid://bx418t4qbicbr" path="res://camera/camera-rig.tscn" id="3_k0u2v"]
+
+[node name="test-moritz" type="Node3D"]
+
+[node name="Dog" parent="." instance=ExtResource("1_dh521")]
+
+[node name="Sheep" parent="." instance=ExtResource("2_c4ghx")]
+
+[node name="camerarig" parent="." instance=ExtResource("3_k0u2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28338, 3.68491)
+
+[node name="Follow Plane" parent="camerarig" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../Dog")
+
+[node name="Camera3D" parent="camerarig/Follow Plane" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../../Sheep")
+
+[editable path="camerarig"]

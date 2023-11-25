@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx418t4qbicbr"]
+
+[ext_resource type="Script" path="res://camera/FollowCamera.gd" id="1_klhut"]
+[ext_resource type="Script" path="res://camera/LookAt.gd" id="2_0q3xj"]
+
+[node name="Camera Rig" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1644, 0)
+
+[node name="Follow Plane" type="Node3D" parent="."]
+script = ExtResource("1_klhut")
+
+[node name="Camera3D" type="Camera3D" parent="Follow Plane"]
+script = ExtResource("2_0q3xj")
