@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_yoofr"]
 [ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_xk21v"]
 [ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_1sujn"]
-[ext_resource type="PackedScene" path="res://actors/HUD.tscn" id="8_cb8gq"]
+[ext_resource type="PackedScene" uid="uid://cuquqjl6wexqn" path="res://actors/HUD.tscn" id="8_cb8gq"]
 [ext_resource type="PackedScene" path="res://scenes/music-player.tscn" id="9_ra25n"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]

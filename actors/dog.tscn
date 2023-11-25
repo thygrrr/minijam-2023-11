@@ -15,7 +15,7 @@ radius = 1.0
 script = ExtResource("1_jyhru")
 
 [node name="Camera Rig" parent="." instance=ExtResource("1_sbolm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -20)
 
 [node name="Follow Plane" parent="Camera Rig" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../Dog Character Mesh")
