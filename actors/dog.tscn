@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2pjx8xhnvbdk"]
+[gd_scene load_steps=8 format=3 uid="uid://c2pjx8xhnvbdk"]
 
 [ext_resource type="Material" uid="uid://bd2yiewuf2dcc" path="res://actors/dog-material.tres" id="1_2afv6"]
 [ext_resource type="Script" path="res://code/KinematicController.gd" id="1_30yob"]
 [ext_resource type="PackedScene" uid="uid://bx418t4qbicbr" path="res://camera/camera-rig.tscn" id="1_sbolm"]
 [ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_hhv7b"]
+[ext_resource type="Script" path="res://actors/SetTopLevel.gd" id="3_p74og"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_b6brc"]
 
@@ -22,9 +23,9 @@ scaling = Vector3(1, 1, 1)
 target = NodePath("../../../Dog Character Mesh")
 
 [node name="Dog Character Mesh" type="MeshInstance3D" parent="."]
-top_level = true
 mesh = SubResource("PrismMesh_b6brc")
 surface_material_override/0 = ExtResource("1_2afv6")
+script = ExtResource("3_p74og")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
 script = ExtResource("1_30yob")

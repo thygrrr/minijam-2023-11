@@ -8,6 +8,10 @@ var move_direction : Vector3 = Vector3.ZERO
 @export var move_speed : float = 20
 @onready var smoothed_transform : Node3D = $SmoothRemoteTransform3D
 
+signal on_flee;
+signal on_chase;
+signal on_idle;
+
 func _physics_process(delta):
 	if dog:
 		chase_or_flee()
@@ -22,7 +26,10 @@ func _physics_process(delta):
 func chase_or_flee():
 	var direction : Vector3 = (self.global_position - dog.global_position)
 	if mirrored:
+		on_chase.emit()
 		direction *= -1
+	else:
+		on_flee.emit()
 	move_direction = direction.normalized()
 	var magnitude = direction.length()
 	move_force = direction.normalized() / magnitude
@@ -36,4 +43,6 @@ func _on_area_3d_body_entered(body):
 func _on_area_3d_body_exited(body):
 	print("Body exited")
 	if body.name == "Dog Controller":
+		on_idle.emit()
 		dog = null
+

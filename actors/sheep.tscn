@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf1r412lc4j4y"]
+[gd_scene load_steps=8 format=3 uid="uid://cf1r412lc4j4y"]
 
 [ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
 [ext_resource type="Script" path="res://code/Sheep.gd" id="1_ycmc6"]
 [ext_resource type="Script" path="res://code/SmoothRemoteTransform.gd" id="3_v3xaa"]
+[ext_resource type="Script" path="res://actors/SetTopLevel.gd" id="3_yclgx"]
 [ext_resource type="Script" path="res://actors/SheepAnimationDriver.gd" id="4_njhre"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
@@ -24,10 +25,11 @@ target = NodePath("../Sheep Mesh")
 angular_smooth_time = 0.01
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563512, 0)
 shape = SubResource("SphereShape3D_bx7et")
 
 [node name="Sheep Mesh" type="Node3D" parent="."]
-top_level = true
+script = ExtResource("3_yclgx")
 
 [node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -38,5 +40,8 @@ script = ExtResource("4_njhre")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sheep Area"]
 shape = SubResource("SphereShape3D_j67cp")
 
+[connection signal="on_chase" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_chase"]
+[connection signal="on_flee" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_flee"]
+[connection signal="on_idle" from="." to="Sheep Mesh/SM_Sheep" method="_on_sheep_on_idle"]
 [connection signal="body_entered" from="Sheep Area" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Sheep Area" to="." method="_on_area_3d_body_exited"]

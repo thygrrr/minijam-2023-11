@@ -1,14 +1,13 @@
 [gd_resource type="Environment" format=3 uid="uid://bo40d8jk3a2il"]
 
 [resource]
-ambient_light_source = 2
-ambient_light_color = Color(0.423529, 0.537255, 0.423529, 1)
-tonemap_mode = 3
-ssr_enabled = true
+background_mode = 1
+background_color = Color(0.756863, 0.866667, 0.72549, 1)
+tonemap_mode = 2
 ssao_enabled = true
-ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
-fog_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.2
 volumetric_fog_enabled = true
-adjustment_enabled = true
+volumetric_fog_density = 0.0
