@@ -1,31 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf1r412lc4j4y"]
 
 [ext_resource type="PackedScene" uid="uid://csa04bbxl75xp" path="res://actors/SM_Sheep.glb" id="1_0vio2"]
-[ext_resource type="Script" path="res://code/SheepEvasion.gd" id="1_dfq6n"]
+[ext_resource type="Script" path="res://code/Sheep.gd" id="1_ycmc6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bx7et"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j67cp"]
 radius = 5.0
 
-[node name="Sheep" type="Node3D"]
-script = ExtResource("1_dfq6n")
-metadata/SheepEvasion = false
+[node name="Sheep" type="RigidBody3D"]
+top_level = true
+script = ExtResource("1_ycmc6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bx7et")
 
 [node name="Sheep Mesh" type="Node3D" parent="."]
 
 [node name="SM_Sheep" parent="Sheep Mesh" instance=ExtResource("1_0vio2")]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-script = ExtResource("1_dfq6n")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_bx7et")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_j67cp")
 
-[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
