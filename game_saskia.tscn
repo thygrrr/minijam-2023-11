@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_wiili"]
 [ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="3_dissg"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_vd3ll"]
-[ext_resource type="Environment" path="res://Environment/rendering-environment.tres" id="4_8ef5s"]
+[ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_8ef5s"]
 [ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_gwoe3"]
 [ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="5_u8cjq"]
-[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_lga5d"]
-[ext_resource type="PackedScene" uid="uid://c2gvojaxsy5k" path="res://actors/HUD.tscn" id="6_wlkn4"]
+[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Customized.tscn" id="6_lga5d"]
+[ext_resource type="PackedScene" uid="uid://cuquqjl6wexqn" path="res://actors/HUD.tscn" id="6_wlkn4"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
 dof_blur_far_enabled = true

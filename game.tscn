@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_04sw3"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_gh6y3"]
 [ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_yoofr"]
-[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_xk21v"]
+[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Customized.tscn" id="6_xk21v"]
 [ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_1sujn"]
 [ext_resource type="PackedScene" uid="uid://di71ceqg27wkb" path="res://Environment/rendering-environment-sunny-day.tscn" id="9_qcejd"]
 [ext_resource type="PackedScene" uid="uid://bixmlbv7e1yvr" path="res://scenes/music-player.tscn" id="9_ra25n"]

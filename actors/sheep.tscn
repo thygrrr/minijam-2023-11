@@ -18,10 +18,9 @@ collision_layer = 2
 collision_mask = 31
 axis_lock_linear_y = true
 lock_rotation = true
-linear_damp = 4.0
-angular_damp = 1.0
+linear_damp = 3.0
+angular_damp = 0.5
 script = ExtResource("1_ycmc6")
-cohesion_speed = 1.0
 noise = SubResource("FastNoiseLite_kjw71")
 
 [node name="SmoothRemoteTransform3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]

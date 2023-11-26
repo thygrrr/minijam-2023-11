@@ -1,7 +1,5 @@
 extends RigidBody3D
 @onready var smoothed_transform : Node3D = $SmoothRemoteTransform3D
-@export var flee_speed : float = 50
-@export var cohesion_speed : float = 20
 @export var idle_speed : float = 10
 
 @export var noise : FastNoiseLite
@@ -38,10 +36,11 @@ func _physics_process(delta):
 		on_idle.emit()
 
 
-	var idle_force := Vector3.ZERO
-	idle_force.x += noise.get_noise_2d(time, 3)
-	idle_force.z += noise.get_noise_2d(time, 7)
+	var idle_force := Vector3(idle_speed, 0, idle_speed)
+	idle_force.x *= noise.get_noise_2d(time, 3) #prime numbers to get a nice interleaved wobble left/right/up/down
+	idle_force.z *= noise.get_noise_2d(time, 7)
 
-	var combined = cohesion_force * cohesion_speed + flee_force * flee_speed + idle_force * idle_speed
+
+	var combined = cohesion_force + flee_force + idle_force
 	smoothed_transform.look_at(smoothed_transform.global_position - combined.normalized(), Vector3.UP)
 	constant_force = combined
