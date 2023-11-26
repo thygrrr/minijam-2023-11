@@ -16,11 +16,11 @@ func _process(delta):
 func _on_area_3d_area_entered(area):
 	print(sheep_count)
 	if area.name == "Sheep Area":
-		sheep_count += 1 
+		sheep_count += 1
 		if sheep_count >= sheep_count_goal:
 			win.emit()
-			
+
 
 func _on_area_3d_area_exited(area):
 	pass
-	#sheep_count -= 1 
+	#sheep_count -= 1

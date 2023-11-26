@@ -1,73 +1,47 @@
 extends RigidBody3D
-
-var dog : Node3D
-var mirrored : bool
-@export var distance_scale := 0.5
-var move_force : Vector3 = Vector3.ZERO
-var move_direction : Vector3 = Vector3.ZERO
-
-@export var move_speed : float = 100
-@export var noise_speed : float = 20
 @onready var smoothed_transform : Node3D = $SmoothRemoteTransform3D
+@export var flee_speed : float = 50
+@export var cohesion_speed : float = 20
+@export var idle_speed : float = 10
 
 @export var noise : FastNoiseLite
+
+var move_direction : Vector3 = Vector3.ZERO
+
 
 signal on_flee;
 signal on_chase;
 signal on_idle;
+
+var mirrored : bool
+var fleeing : bool
 
 var time : float
 
 func _ready():
 	var random := RandomNumberGenerator.new()
 	time = random.randf_range(0, 100)
+	HerdingSystem.herd.push_back(self)
 
 func _physics_process(delta):
-	if dog:
-		chase_or_flee()
-	else:
-		move_direction = Vector3.ZERO
-
 	time += delta
 
-	var move_noise : Vector3
-	move_noise.x += noise.get_noise_2d(time, 3)
-	move_noise.z += noise.get_noise_2d(time, 7)
+	var flee_force := HerdingSystem.get_sheep_flight_force(self)
+	var cohesion_force := HerdingSystem.get_herd_cohesion_force(self)
 
-
-	var combined = move_force * move_speed + move_noise * noise_speed
-	smoothed_transform.look_at(smoothed_transform.global_position - combined, Vector3.UP)
-	constant_force = combined
-
-
-func chase_or_flee():
-	var dogmesh = dog.get_node("../Dog Character Mesh")
-	var straight : Vector3 = ($SheepArea.global_position - dog.global_position)
-	var lookZ = dogmesh.global_transform.basis.z
-	var lookX = dogmesh.global_transform.basis.x
-	var direction : Vector3
-	var ccw = straight.cross(lookZ).dot(Vector3.UP)
-	if straight.dot(lookZ) > 0:
-		direction = straight.normalized() + lookZ * 2
-	else:
-		direction = straight.normalized()
-
-	if mirrored:
-		on_chase.emit()
-		direction *= -1
-	else:
+	if flee_force.length_squared() > 0 && !fleeing:
+		fleeing = true
 		on_flee.emit()
-	direction.y = 0
-	move_direction = direction.normalized()
-	var magnitude = straight.length()
-	move_force = direction.normalized() * pow(1.0 / magnitude, distance_scale)
 
-func _on_area_3d_body_entered(body):
-	if body.name == "Dog Controller":
-		dog = body
-
-func _on_area_3d_body_exited(body):
-	if body.name == "Dog Controller":
+	if flee_force.length_squared() == 0 && fleeing:
+		fleeing = false
 		on_idle.emit()
-		dog = null
 
+
+	var idle_force := Vector3.ZERO
+	idle_force.x += noise.get_noise_2d(time, 3)
+	idle_force.z += noise.get_noise_2d(time, 7)
+
+	var combined = cohesion_force * cohesion_speed + flee_force * flee_speed + idle_force * idle_speed
+	smoothed_transform.look_at(smoothed_transform.global_position - combined.normalized(), Vector3.UP)
+	constant_force = combined

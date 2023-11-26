@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://code/Goal.gd" id="1_4e10x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_eglm5"]
-radius = 10.0
+radius = 20.0
 
 [node name="Goal" type="Node3D"]
 script = ExtResource("1_4e10x")

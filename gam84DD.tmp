@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89666, 1.90735e-06, -62.34
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9485, 0, -32.5816)
 
 [node name="Goal" parent="." instance=ExtResource("7_1sujn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.9682, -2.82824, -75.3521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9682, -2.82824, -66.3521)
 sheep_count_goal = 5
 
 [node name="music-player" parent="." instance=ExtResource("9_ra25n")]

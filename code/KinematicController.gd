@@ -27,14 +27,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move_toward(velocity.x, input_dir.x * SPEED, ACCEL * delta)
 	velocity.z = move_toward(velocity.z, input_dir.y * SPEED, ACCEL * delta)
 
-	if !is_on_floor():
-		velocity.y = move_toward(velocity.y, -9.81, delta)
-	else:
-		velocity.y = 0
-
 	acceleration = Vector3(input_dir.x, 0, input_dir.y)
 	direction = velocity.normalized()
 
-	look_at(direction + global_position)
+	if (direction.length_squared() > 0.01):
+		look_at(direction + global_position)
 
 	move_and_slide()

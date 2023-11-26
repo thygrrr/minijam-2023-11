@@ -15,6 +15,10 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+HerdingSystem="*res://code/HerdingSystem.gd"
+
 [dotnet]
 
 project/assembly_name="mirror-sheep"

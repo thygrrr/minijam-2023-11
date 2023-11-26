@@ -38,9 +38,6 @@ func follow_rotation(delta: float) -> void:
 	target.quaternion = Quaternion.from_euler(smooth_eulers)
 
 func follow_position(delta: float) -> void:
-	var ref_fps = 120
-	var exponent = delta * ref_fps
-	var k = pow(0.8, exponent)
 	target.position = SmoothDamp(target.position, global_position, motion_smooth_time, delta)
 
 func LookRotation(from : Vector3, dir : Vector3, up : Vector3) -> Quaternion:
@@ -60,7 +57,9 @@ func SmoothDamp(current : Vector3, target : Vector3, smoothTime : float, deltaTi
 		var omega = 2.0 / smoothTime
 
 		var x = omega * deltaTime;
-		var exp = 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x);
+
+		#negative exponential taylor approximation
+		var nexp = 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x);
 
 		var change = current - target;
 		var originalTo = target;
@@ -71,8 +70,8 @@ func SmoothDamp(current : Vector3, target : Vector3, smoothTime : float, deltaTi
 		target = current - change;
 
 		var temp = (linear_velocity + omega * change) * deltaTime
-		linear_velocity = (linear_velocity - omega * temp) * exp
-		var output = target + (change + temp) * exp
+		linear_velocity = (linear_velocity - omega * temp) * nexp
+		var output = target + (change + temp) * nexp
 
 		# Prevent overshooting - FIXME - probably needs to treat all components separately.
 		if (originalTo.x > current.x) == (output.x > originalTo.x):
@@ -95,10 +94,11 @@ func SmoothDampEuler(current : Vector3, target : Vector3, smoothTime : float, de
 		var omega = 2.0 / smoothTime
 
 		var x = omega * deltaTime;
-		var exp = 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x);
+		#negative exponential taylor approximation
+		var nexp = 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x);
 
 		var change = current - target;
-		var originalTo = target;
+		#var originalTo = target;
 
 		# Clamp maxSpeed
 		#var maxChange = maxSpeed * smoothTime;
@@ -106,8 +106,8 @@ func SmoothDampEuler(current : Vector3, target : Vector3, smoothTime : float, de
 		target = current - change;
 
 		var temp = (angular_velocity + omega * change) * deltaTime
-		angular_velocity = (angular_velocity - omega * temp) * exp
-		var output = target + (change + temp) * exp
+		angular_velocity = (angular_velocity - omega * temp) * nexp
+		var output = target + (change + temp) * nexp
 
 		# Prevent overshooting - FIXME - probably needs to treat all components separately.
 
