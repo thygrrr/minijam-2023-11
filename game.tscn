@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_xk21v"]
 [ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_1sujn"]
 [ext_resource type="PackedScene" uid="uid://cuquqjl6wexqn" path="res://actors/HUD.tscn" id="8_cb8gq"]
-[ext_resource type="PackedScene" path="res://scenes/music-player.tscn" id="9_ra25n"]
+[ext_resource type="PackedScene" uid="uid://bixmlbv7e1yvr" path="res://scenes/music-player.tscn" id="9_ra25n"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
 dof_blur_far_enabled = true
@@ -31,7 +31,7 @@ camera_attributes = SubResource("CameraAttributesPractical_5alyf")
 
 [node name="Key Light" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
-light_color = Color(1, 1, 0.768627, 1)
+light_energy = 0.5
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_blur = 3.0
