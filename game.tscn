@@ -1,44 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmicpc3pq8ihq"]
+[gd_scene load_steps=9 format=3 uid="uid://cmicpc3pq8ihq"]
 
 [ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="1_0n2nm"]
 [ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_04sw3"]
 [ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_gh6y3"]
-[ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_8843f"]
 [ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_yoofr"]
 [ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_xk21v"]
 [ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_1sujn"]
-[ext_resource type="PackedScene" uid="uid://cuquqjl6wexqn" path="res://actors/HUD.tscn" id="8_cb8gq"]
+[ext_resource type="PackedScene" uid="uid://di71ceqg27wkb" path="res://Environment/rendering-environment-sunny-day.tscn" id="9_qcejd"]
 [ext_resource type="PackedScene" uid="uid://bixmlbv7e1yvr" path="res://scenes/music-player.tscn" id="9_ra25n"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 52.0
-dof_blur_near_enabled = true
 
 [node name="game" type="Node3D"]
 
 [node name="Dog + Camera Scene" parent="." instance=ExtResource("2_04sw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92853, -0.0462551, -1.04299)
+
+[node name="Level" parent="." instance=ExtResource("6_xk21v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
+
+[node name="Ground" parent="." instance=ExtResource("1_0n2nm")]
 
 [node name="Sheep" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0187, -2.38419e-07, -35.4839)
-
-[node name="Ground" parent="." instance=ExtResource("1_0n2nm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9545, 0, -34.5506)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_8843f")
-camera_attributes = SubResource("CameraAttributesPractical_5alyf")
-
-[node name="Key Light" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
-light_energy = 0.5
-shadow_enabled = true
-shadow_opacity = 0.8
-shadow_blur = 3.0
-
-[node name="Fill Light" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.733853, -0.585791, 0.343961, -0.633848, -0.772594, 0.0365511, 0.244331, -0.244842, -0.938272, 0, 5.5709, 0)
-light_color = Color(0.501961, 0.478431, 1, 1)
 
 [node name="Sheep2" parent="." instance=ExtResource("3_gh6y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6549, 0, -24.2855)
@@ -187,13 +169,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89666, 1.90735e-06, -62.34
 [node name="Mirror Shard" parent="." instance=ExtResource("5_yoofr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9485, 0, -32.5816)
 
-[node name="Node3D" parent="." instance=ExtResource("6_xk21v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9545, 0, -34.5506)
-
 [node name="Goal" parent="." instance=ExtResource("7_1sujn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9682, -2.82824, -66.3521)
 sheep_count_goal = 5
 
-[node name="HUD" parent="." instance=ExtResource("8_cb8gq")]
-
 [node name="music-player" parent="." instance=ExtResource("9_ra25n")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("9_qcejd")]

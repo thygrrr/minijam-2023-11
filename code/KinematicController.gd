@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var direction := Vector3.ZERO
 @export var acceleration := Vector3.ZERO
 
-@export var observer : Camera3D 
+@export var observer : Camera3D
 
 func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")

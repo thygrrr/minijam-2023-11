@@ -1,96 +1,178 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1kt1c3tyusfa"]
 
-[ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="2_fpidm"]
-[ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="3_oh5l8"]
-[ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="3_tc15c"]
-[ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="4_ejhdb"]
-[ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_0ukko"]
-[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="5_tbbsf"]
-[ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_mcnlx"]
+[ext_resource type="PackedScene" uid="uid://c2pjx8xhnvbdk" path="res://actors/dog.tscn" id="1_i086y"]
+[ext_resource type="PackedScene" uid="uid://cf1r412lc4j4y" path="res://actors/sheep.tscn" id="2_a2114"]
+[ext_resource type="PackedScene" uid="uid://b37d3ogt12lk4" path="res://Environment/ground.tscn" id="3_crxrh"]
+[ext_resource type="PackedScene" uid="uid://cnhemlnl8brbi" path="res://actors/mirror_shard.tscn" id="5_vmlkq"]
+[ext_resource type="PackedScene" uid="uid://dfq3hk4is4f7f" path="res://Environment/Level Suffix Test.tscn" id="6_kosj2"]
+[ext_resource type="PackedScene" uid="uid://bgfm16uydd1wd" path="res://actors/goal.tscn" id="7_03ch7"]
+[ext_resource type="PackedScene" uid="uid://bixmlbv7e1yvr" path="res://scenes/music-player.tscn" id="9_6lc8y"]
+[ext_resource type="PackedScene" uid="uid://di71ceqg27wkb" path="res://Environment/rendering-environment-sunny-day.tscn" id="9_ca216"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5alyf"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 52.0
-dof_blur_near_enabled = true
+[node name="game" type="Node3D"]
 
-[node name="game moritz" type="Node3D"]
+[node name="Dog + Camera Scene" parent="." instance=ExtResource("1_i086y")]
 
-[node name="Dog + Camera Scene" parent="." instance=ExtResource("2_fpidm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93852, 1, 3.313)
+[node name="Sheep" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0187, -2.38419e-07, -35.4839)
 
-[node name="Sheep" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0642091, -2.38419e-07, -0.933392)
+[node name="Ground" parent="." instance=ExtResource("3_crxrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9545, 0, -34.5506)
 
-[node name="Ground" parent="." instance=ExtResource("3_tc15c")]
+[node name="Sheep2" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6549, 0, -24.2855)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_ejhdb")
-camera_attributes = SubResource("CameraAttributesPractical_5alyf")
+[node name="Sheep3" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1947, 0, -24.2252)
 
-[node name="Key Light" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
-light_color = Color(1, 1, 0.768627, 1)
-shadow_enabled = true
-shadow_opacity = 0.8
-shadow_blur = 3.0
+[node name="Sheep4" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3899, 0.181362, -24.1284)
 
-[node name="Fill Light" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.733853, -0.585791, 0.343961, -0.633848, -0.772594, 0.0365511, 0.244331, -0.244842, -0.938272, 0, 5.5709, 0)
-light_color = Color(0.501961, 0.478431, 1, 1)
+[node name="Sheep5" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5059, 0, -24.2686)
 
-[node name="Sheep2" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41774, 0, 4.5896)
+[node name="Sheep6" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.497, 0, -22.6056)
 
-[node name="Sheep3" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87797, 0, 4.64984)
+[node name="Sheep7" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6839, 0, -24.0718)
 
-[node name="Sheep4" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68278, 0.181362, 4.74665)
+[node name="Sheep8" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9537, 0, -20.961)
 
-[node name="Sheep5" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43325, 0, 4.60643)
+[node name="Sheep9" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2298, 0, -22.1797)
 
-[node name="Sheep6" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57567, 0, 6.26942)
+[node name="Sheep10" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.385, 0, 0.0508804)
 
-[node name="Sheep7" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611174, 0, 4.80328)
+[node name="Sheep11" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9247, 0, 0.111122)
 
-[node name="Sheep8" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11897, 0, 7.91401)
+[node name="Sheep12" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1199, 0.181362, 0.207932)
 
-[node name="Sheep9" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15712, 0, 6.69536)
+[node name="Sheep13" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.236, 0, 0.0677109)
 
-[node name="Sheep10" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61073, 0, -32.123)
+[node name="Sheep14" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.227, 0, 1.7307)
 
-[node name="Sheep11" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.071, 0, -32.0627)
+[node name="Sheep15" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4139, 0, 0.264561)
 
-[node name="Sheep12" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87577, 0.181362, -31.9659)
+[node name="Sheep16" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6837, 0, 3.37529)
 
-[node name="Sheep13" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75974, 0, -32.1061)
+[node name="Sheep17" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9598, 0, 2.15664)
 
-[node name="Sheep14" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7687, 0, -30.4431)
+[node name="Sheep18" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1051, 0, -24.7103)
 
-[node name="Sheep15" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58181, 0, -31.9093)
+[node name="Sheep19" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6449, 0, -24.65)
 
-[node name="Sheep16" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31196, 0, -28.7985)
+[node name="Sheep20" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8401, 0.181362, -24.5532)
 
-[node name="Sheep17" parent="." instance=ExtResource("3_oh5l8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03587, 0, -30.0172)
+[node name="Sheep21" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9561, 0, -24.6935)
 
-[node name="Mirror Shard" parent="." instance=ExtResource("5_0ukko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99392, 0, 1.96894)
+[node name="Sheep22" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9472, 0, -23.0305)
 
-[node name="Node3D" parent="." instance=ExtResource("5_tbbsf")]
+[node name="Sheep23" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1341, 0, -24.4966)
 
-[node name="Goal" parent="." instance=ExtResource("7_mcnlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0137, -2.82824, -31.8015)
-sheep_count_goal = 8
+[node name="Sheep24" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4039, 0, -21.3859)
+
+[node name="Sheep25" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.68, 0, -22.6045)
+
+[node name="Sheep26" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75573, 0, -40.0493)
+
+[node name="Sheep27" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21596, 0, -39.9891)
+
+[node name="Sheep28" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02077, 0.181362, -39.8922)
+
+[node name="Sheep29" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.904738, 0, -40.0325)
+
+[node name="Sheep30" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91366, 0, -38.3695)
+
+[node name="Sheep31" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72682, 0, -39.8356)
+
+[node name="Sheep32" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45696, 0, -36.7249)
+
+[node name="Sheep33" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18087, 0, -37.9435)
+
+[node name="Sheep34" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1701, 0, -53.3153)
+
+[node name="Sheep35" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6304, 0, -53.2551)
+
+[node name="Sheep36" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4352, 0.181362, -53.1583)
+
+[node name="Sheep37" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31914, 0, -53.2985)
+
+[node name="Sheep38" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3281, 0, -51.6355)
+
+[node name="Sheep39" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.14122, 0, -53.1017)
+
+[node name="Sheep40" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87136, 0, -49.9909)
+
+[node name="Sheep41" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59527, 0, -51.2096)
+
+[node name="Sheep42" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32181, 1.90735e-06, -64.4483)
+
+[node name="Sheep43" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13842, 1.90735e-06, -64.388)
+
+[node name="Sheep44" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05677, 0.181364, -64.2912)
+
+[node name="Sheep45" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1728, 1.90735e-06, -64.4314)
+
+[node name="Sheep46" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.836125, 1.90735e-06, -62.7684)
+
+[node name="Sheep47" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35072, 1.90735e-06, -64.2346)
+
+[node name="Sheep48" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62057, 1.90735e-06, -61.1238)
+
+[node name="Sheep49" parent="." instance=ExtResource("2_a2114")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89666, 1.90735e-06, -62.3425)
+
+[node name="Mirror Shard" parent="." instance=ExtResource("5_vmlkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9485, 0, -32.5816)
+
+[node name="Node3D" parent="." instance=ExtResource("6_kosj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9545, 0, -34.5506)
+
+[node name="Goal" parent="." instance=ExtResource("7_03ch7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9682, -2.82824, -66.3521)
+sheep_count_goal = 5
+
+[node name="music-player" parent="." instance=ExtResource("9_6lc8y")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("9_ca216")]

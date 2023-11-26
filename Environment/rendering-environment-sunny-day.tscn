@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://di71ceqg27wkb"]
+
+[ext_resource type="Environment" uid="uid://bo40d8jk3a2il" path="res://Environment/rendering-environment.tres" id="1_suii4"]
+[ext_resource type="CameraAttributesPractical" uid="uid://syk2cuc2hxkd" path="res://Environment/rendering-attributes.tres" id="2_mlqi1"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_suii4")
+camera_attributes = ExtResource("2_mlqi1")
+
+[node name="Key Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.615414, -0.475143, 0.628891, -0.470146, 0.419119, 0.776725, -0.632636, -0.773678, 0.0345446, 0, 5.5709, 0)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_blur = 3.0
+
+[node name="Fill Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.733853, -0.585791, 0.343961, -0.633848, -0.772594, 0.0365511, 0.244331, -0.244842, -0.938272, 0, 5.5709, 0)
+light_color = Color(0.501961, 0.478431, 1, 1)

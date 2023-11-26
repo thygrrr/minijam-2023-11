@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://b37d3ogt12lk4"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wwotr"]
-size = Vector3(200, 2, 200)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2gxw0"]
 
 [node name="Ground" type="StaticBody3D"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-shape = SubResource("BoxShape3D_wwotr")
+shape = SubResource("WorldBoundaryShape3D_2gxw0")
+metadata/_edit_group_ = true

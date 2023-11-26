@@ -80,6 +80,15 @@ start_game={
 , null]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Walls & Obstacles"
+3d_physics/layer_2="Sheep"
+3d_physics/layer_3="Dog"
+3d_physics/layer_5="Ground"
+
 [physics]
 
+3d/physics_engine="GodotPhysics3D"
 3d/default_linear_damp=1.0
+3d/default_angular_damp=0.25

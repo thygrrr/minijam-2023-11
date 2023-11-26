@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://code/SetTopLevel.gd" id="3_pqvlo"]
 [ext_resource type="Script" path="res://actors/DogAnimationDriver.gd" id="5_kuw8o"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_grkg1"]
-radius = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o32pu"]
+radius = 0.7
 
 [node name="Dog + Camera Scene" type="Node3D"]
 script = ExtResource("1_jyhru")
@@ -33,13 +33,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 script = ExtResource("5_kuw8o")
 
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
-top_level = true
 collision_layer = 4
-collision_mask = 9
-wall_min_slide_angle = 3.14159
+collision_mask = 27
+floor_snap_length = 1.0
+platform_floor_layers = 16
+platform_wall_layers = 1
+safe_margin = 0.1
 script = ExtResource("1_30yob")
-SPEED = 15.0
-ACCEL = 50.0
+SPEED = 10.0
+ACCEL = 25.0
 observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
@@ -47,8 +49,8 @@ script = ExtResource("3_hhv7b")
 target = NodePath("../../Dog Character Mesh")
 angular_smooth_time = 0.05
 
-[node name="Dog Collision Shape" type="CollisionShape3D" parent="Dog Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_grkg1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dog Controller"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_o32pu")
 
 [editable path="Camera Rig"]

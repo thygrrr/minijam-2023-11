@@ -21,7 +21,7 @@ var time : float
 func _ready():
 	var random := RandomNumberGenerator.new()
 	time = random.randf_range(0, 100)
-	
+
 func _physics_process(delta):
 	if dog:
 		chase_or_flee()
@@ -29,17 +29,17 @@ func _physics_process(delta):
 		move_direction = Vector3.ZERO
 
 	time += delta
-	
+
 	var move_noise : Vector3
 	move_noise.x += noise.get_noise_2d(time, 3)
-	move_noise.z += noise.get_noise_2d(time, 7) 
-	
-			
-	var combined = move_force * move_speed + move_noise * noise_speed 
+	move_noise.z += noise.get_noise_2d(time, 7)
+
+
+	var combined = move_force * move_speed + move_noise * noise_speed
 	smoothed_transform.look_at(smoothed_transform.global_position - combined, Vector3.UP)
 	constant_force = combined
-	
-			
+
+
 func chase_or_flee():
 	var dogmesh = dog.get_node("../Dog Character Mesh")
 	var straight : Vector3 = ($SheepArea.global_position - dog.global_position)
@@ -51,7 +51,7 @@ func chase_or_flee():
 		direction = straight.normalized() + lookZ * 2
 	else:
 		direction = straight.normalized()
-			
+
 	if mirrored:
 		on_chase.emit()
 		direction *= -1
@@ -61,7 +61,7 @@ func chase_or_flee():
 	move_direction = direction.normalized()
 	var magnitude = straight.length()
 	move_force = direction.normalized() * pow(1.0 / magnitude, distance_scale)
-	
+
 func _on_area_3d_body_entered(body):
 	if body.name == "Dog Controller":
 		dog = body
