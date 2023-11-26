@@ -35,7 +35,6 @@ script = ExtResource("5_kuw8o")
 [node name="Dog Controller" type="CharacterBody3D" parent="." node_paths=PackedStringArray("observer")]
 collision_layer = 4
 collision_mask = 27
-floor_snap_length = 1.0
 platform_floor_layers = 16
 platform_wall_layers = 1
 safe_margin = 0.1
@@ -47,6 +46,7 @@ observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
 script = ExtResource("3_hhv7b")
 target = NodePath("../../Dog Character Mesh")
+motion_smooth_time = 0.05
 angular_smooth_time = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Dog Controller"]

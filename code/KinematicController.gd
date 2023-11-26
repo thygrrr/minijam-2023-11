@@ -35,4 +35,6 @@ func _physics_process(delta: float) -> void:
 	acceleration = Vector3(input_dir.x, 0, input_dir.y)
 	direction = velocity.normalized()
 
+	look_at(direction + global_position)
+
 	move_and_slide()
