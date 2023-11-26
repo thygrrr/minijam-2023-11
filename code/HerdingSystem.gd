@@ -3,18 +3,18 @@ extends Node
 var dog : Node3D
 var herd : Array[Node3D] = []
 
-const FEAR_INDEPENDENCE : float = 4
-const FEAR_DISTANCE_FALLOFF : float = 1
-const FEAR_MAX_DISTANCE : float = 20
+const FEAR_INDEPENDENCE : float = 3
+const FEAR_DISTANCE_FALLOFF : float = 5
+const FEAR_MAX_DISTANCE : float = 10
 
-const FEAR_SPEED = 50
+const FEAR_SPEED = 30
 const COHESION_SPEED = 10
 
 const COHESION_MIN_DISTANCE : float = 3
 const COHESION_MAX_DISTANCE : float = 50
 
 const WALL_AVOIDANCE_RADIUS : float = 2
-const WALL_AVOIDANCE_BRAVERY : float = 3
+const WALL_AVOIDANCE_BRAVERY : float = 1
 
 func get_sheep_flight_force(sheep : Node3D) -> Vector3:
 	if !dog:
@@ -38,8 +38,7 @@ func get_sheep_flight_force(sheep : Node3D) -> Vector3:
 	var avoidance := Vector3.ZERO
 	var sees_wall = space_state.intersect_ray(wall_params)
 	if sees_wall:
-		var wall_direction : Vector3 = sees_wall.position - sheep.global_position
-		avoidance = -lookZ * WALL_AVOIDANCE_BRAVERY # run towards the player because cornered
+		avoidance = - lookZ * WALL_AVOIDANCE_BRAVERY # run towards the player because cornered
 
 
 	#if dog faces sheep, the sheep will veer clockwise or ccw depending on

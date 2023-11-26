@@ -41,7 +41,7 @@ platform_wall_layers = 1
 safe_margin = 0.1
 script = ExtResource("1_30yob")
 SPEED = 15.0
-ACCEL = 10.0
+ACCEL = 50.0
 observer = NodePath("../Camera Rig/Follow Plane/Camera3D")
 
 [node name="Smooth Mesh Mover" type="Node3D" parent="Dog Controller" node_paths=PackedStringArray("target")]
